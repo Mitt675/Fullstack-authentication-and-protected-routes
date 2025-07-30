@@ -3,6 +3,8 @@ loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const message = document.getElementById('message')
+
 
     const res = await fetch('/api/auth/login', {
         method: 'POST',

@@ -1,4 +1,4 @@
-const { json } = require("express");
+
 
 const signupform = document.getElementsByClassName('signupForm').addEventlistner('submit',async (e)=>{
     e.preventDefauld();
@@ -6,6 +6,9 @@ const signupform = document.getElementsByClassName('signupForm').addEventlistner
     const username = document.getElementById('userName').value 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
+    const confirmpassword = document.getElementById('confirmPassword').value
+    const message = document.getElementById('message')
+
 try{
   
     const res = await fetch('/api/auth/signup',{
