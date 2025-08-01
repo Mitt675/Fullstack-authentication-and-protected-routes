@@ -2,15 +2,18 @@ const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const authRoutes = require('./routes/auth')
-const dashBoard = require('./routes/dashboard')
-const path = require('path')
 
-dotenv.config({path: path.join(__dirname ,'../.env')})
+const path = require('path')
+const dotenvPath = path.resolve(__dirname, '../.env');
+dotenv.config({ path: dotenvPath });
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+
+const authRoutes = require('./routes/auth')
+const dashBoard = require('./routes/dashboard')
+
 app.use('/api/auth',authRoutes)
 app.use('/dashboard',dashBoard)
 app.use(express.static(path.join(__dirname, '../Client_side')))

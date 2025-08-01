@@ -3,7 +3,9 @@ const router = express.Router()
 const User = require('../models/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config({path:'../.env'})
+
+
 const JWT_SECRET = process.env.JWT_SECRET
 
 router.post('/signup',async (req,res)=>{
